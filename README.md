@@ -104,10 +104,9 @@ Define specific metrics to evaluate the LLM's performance:
 ### [2023 CWE Top 25 Methodology](https://cwe.mitre.org/top25/archive/2023/2023_methodology.html)
 
 - The “2023 CWE Top 25 Most Dangerous Software Weaknesses” list was calculated by analyzing **public vulnerability data in the U.S. National Vulnerability Database (NVD)** for their root causes via CWE mappings. 
-- This year’s list is based on **43,996 CVE Records for vulnerabilities in 2021 and 2022**. The mapping data was pulled from the NVD on March 27, 2023.
+- This year’s list is based on **43,996** CVE Records for vulnerabilities in 2021 and 2022. The mapping data was pulled from the NVD on March 27, 2023.
 - the team independently analyzed a subset of **7,466** CVE Records in the total dataset for their root causes mappings. 
-- Records were selected via (1) automated keyword analysis of CVE descriptions that suggested inaccurate root cause mappings, or (2) if they mapped to more abstract, high-level CWEs as opposed to more precise root cause mappings. When necessary, the team remapped existing root cause mappings when it seemed that an inconsistent criterion was applied, or a mistake was made in the initial analysis. The team utilized the entire CWE corpus for these remappings, which are then shared with NIST for confirmation and updating the NVD data.
+- Records were selected via (1) automated keyword analysis of CVE descriptions that suggested inaccurate root cause mappings, or (2) if they mapped to more abstract, high-level CWEs as opposed to more precise root cause mappings. When necessary, the team remapped existing root cause mappings when it seemed that an inconsistent criterion was applied, or a mistake was made in the initial analysis. - The team utilized the entire CWE corpus for these remappings, which are then shared with NIST for confirmation and updating the NVD data.
 - In some instances, a sequential series of weaknesses can result in a vulnerability. This creates a root cause mapping “chain”. In this year's analysis, the team attempted to capture chains as best as possible without any changes in the scoring. For any chain "X→Y", both X and Y were included in the analysis as if they were independently listed.
-- The team utilized the entire CWE corpus for these remappings, which are then shared with NIST for confirmation and updating the NVD data.
-- In some instances, a sequential series of weaknesses can result in a vulnerability. This creates a root cause mapping “chain”. In this year's analysis, the team attempted to capture chains as best as possible without any changes in the scoring. For any chain "X→Y", both X and Y were included in the analysis as if they were independently listed.
+
 
