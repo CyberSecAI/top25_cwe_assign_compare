@@ -110,3 +110,141 @@ Define specific metrics to evaluate the LLM's performance:
 - In some instances, a sequential series of weaknesses can result in a vulnerability. This creates a root cause mapping “chain”. In this year's analysis, the team attempted to capture chains as best as possible without any changes in the scoring. For any chain "X→Y", both X and Y were included in the analysis as if they were independently listed.
 
 
+# Examples
+
+>[!NOTE]
+> Count of instances of ref i.e. an extract from the references, not the CVE description.
+
+> ` ref ` 1741
+>
+> `Ref Desc` 90
+> 
+> `ref has` 308
+> 
+> `Ref has no other details` 4 
+
+
+## CVE-2021-0674
+
+### Top25
+
+https://github.com/CyberSecAI/cwe_top25/blob/main/data_in/top25-mitre-mapping-analysis-2023-public.csv
+````
+CVE-2021-0674,CWE-20,"(Chains: CWE-20->CWE-125) Desc: ""out of bounds read due to an incorrect bounds check""."
+CVE-2021-0674,CWE-125,"(Chains: CWE-20->CWE-125) Desc: ""out of bounds read due to an incorrect bounds check""."
+````
+
+### CVEProject 
+
+https://github.com/CVEProject/cvelistV5/blob/b81b0ef286ebee200d5f7b1932440774c4cabdd4/cves/2021/0xxx/CVE-2021-0674.json#L49 **does not contain any CWEs**
+
+### CyberSecAI/cve_info
+
+https://github.com/CyberSecAI/cve_info/blob/main/2021/0xxx/CVE-2021-0674.json
+
+```json
+    "description": "In alac decoder, there is a possible out of bounds read due to an incorrect bounds check. This could lead to local information disclosure with no additional execution privileges needed. User interaction is not needed for exploitation. Patch ID ALPS06064258 Issue ID ALPS06064237.",
+    "keyphrases": {
+        "rootcause": "incorrect bounds check",
+        "weakness": "out of bounds read",
+        "impact": "local information disclosure",
+````
+
+### NVD
+
+https://nvd.nist.gov/vuln/detail/CVE-2021-0674#VulnChangeHistorySection
+
+NVD contains only CWE-125.
+
+CWE Remap by NIST 8/08/2023 10:21:49 AM
+````
+Action   Type  Old Value  New Value
+Changed  CWE   CWE-20     CWE-125
+````
+
+
+
+
+## CVE-2021-1047
+
+### Top25
+
+https://github.com/CyberSecAI/cwe_top25/blob/main/data_in/top25-mitre-mapping-analysis-2023-public.csv
+
+````
+CVE-2021-1047,CWE-190,"(Chains: CWE-190->CWE-125) Desc: ""out of bounds read due to an integer overflow""."
+CVE-2021-1047,CWE-125,"(Chains: CWE-190->CWE-125) Desc: ""out of bounds read due to an integer overflow""."
+````
+
+### CVEProject 
+
+https://github.com/CVEProject/cvelistV5/blob/b81b0ef286ebee200d5f7b1932440774c4cabdd4/cves/2021/1xxx/CVE-2021-1047.json#L49 **does not contain any CWEs**
+
+
+### CyberSecAI/cve_info
+
+https://github.com/CyberSecAI/cve_info/blob/main/2021/1xxx/CVE-2021-1047.json
+```json
+    "description": "In valid_ipc_dram_addr of cm_access_control.c, there is a possible out of bounds read due to an integer overflow. This could lead to local information disclosure with System execution privileges needed. User interaction is not needed for exploitation.Product AndroidVersions Android kernelAndroid ID A-197966306References N/A",
+    "keyphrases": {
+        "rootcause": "integer overflow",
+        "weakness": "out of bounds read",
+        "impact": "local information disclosure",
+````
+
+### NVD
+
+https://nvd.nist.gov/vuln/detail/CVE-2021-1047#VulnChangeHistorySection
+
+````
+Initial Analysis by NIST 12/20/2021 11:04:23 AM
+
+
+Weakness Enumeration
+CWE-ID   CWE                              Name	Source
+CWE-190  Integer Overflow or Wraparound   cwe   source acceptance level NIST  
+````
+
+
+## CVE-2022-1016
+
+### Top25
+
+https://github.com/CyberSecAI/cwe_top25/blob/main/data_in/top25-mitre-mapping-analysis-2023-public.csv
+
+````
+CVE-2022-1016,CWE-909,"(Chains: CWE-909->CWE-416) ""A flaw found ... which can cause a use-after-free"" in description. seclists ref has ""does not initialize the register data"""
+CVE-2022-1016,CWE-416,"(Chains: CWE-909->CWE-416) ""A flaw found ... which can cause a use-after-free"" in description. seclists ref has ""does not initialize the register data"""
+````
+### CVEProject 
+
+### CyberSecAI/cve_info
+
+https://github.com/CyberSecAI/cve_info/blob/main/2022/1xxx/CVE-2022-1016.json
+```json
+    "description": "A flaw was found in the Linux kernel in net/netfilter/nf_tables_core.cnft_do_chain, which can cause a use-after-free. This issue needs to handle return with proper preconditions, as it can lead to a kernel information leak problem caused by a local, unprivileged attacker.",
+    "keyphrases": {
+        "rootcause": "a use-after-free",
+        "weakness": "",
+        "impact": "kernel information leak",
+````
+
+
+
+### NVD
+
+````
+CVE Modified by Red Hat, Inc. 2/02/2023 4:22:00 PM
+
+Removed	CWE Reason	CWE-824 / More specific CWE option available
+
+CWE-ID   CWE                                 Name  Source
+CWE-909  Missing Initialization of Resource  cwe   source acceptance level NIST  
+CWE-824  Access of Uninitialized Pointer           Red Hat, Inc.  
+````
+
+
+https://seclists.org/oss-sec/2022/q1/205
+> Root cause CVE-2022-1016: (it is the shortest, so I will begin with it)
+
+> The nft_do_chain routine in net/netfilter/nf_tables_core.c does not initialize the register data that nf_tables expressions can read from- and write to. These expressions inherently exhibit side effects that can be used to determine the register data, which can contain kernel image pointers, module pointers, and allocation pointers depending on the code path taken to end up at nft_do_chain.
