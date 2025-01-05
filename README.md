@@ -113,15 +113,22 @@ Define specific metrics to evaluate the LLM's performance:
 # Examples
 
 >[!NOTE]
-> Count of instances of ref i.e. an extract from the references, not the CVE description.
+> Some of the Top25 contain information from references e.g.
+>> CVE-2022-32296,CWE-330,"(Chains: CWE-330->CWE-203) ""weakness in randomisation of TCP source port selection"" in ref ""https://www.debian.org/security/2022/dsa-5173"" and ""servers to identify clients by observing what source ports are used"" in description"
+>>
+>> - For CVE-2022-32296, https://www.debian.org/security/2022/dsa-5173 contains additional info not in the description.
+>>
+>> CVE-2022-31459,CWE-328,"ref https://modzero.com/static/meetingowl/Meeting_Owl_Pro_Security_Disclosure_Report_RELEASE.pdf says The SHA-1 hash... can be brute-forced in seconds since it consists only of digits.
+>>
 
-> ` ref ` 1741
->
-> `Ref Desc` 90
-> 
-> `ref has` 308
-> 
-> `Ref has no other details` 4 
+
+Count of instances of `ref` or  `https://` i.e. an extract from the references, not the CVE description:
+- ` ref ` 1741
+- `https://` 1917
+- `commit ref` 173
+- `Ref Desc` 90
+- `ref has` 308
+- `Ref has no other details` 4 
 
 
 ## CVE-2021-0674
@@ -259,7 +266,7 @@ Initial Analysis by NIST 9/08/2022 9:15:48 AM
 
 ````
 
-### NVD References
+### References
 
 https://seclists.org/oss-sec/2022/q1/205
 > Root cause CVE-2022-1016: (it is the shortest, so I will begin with it)
