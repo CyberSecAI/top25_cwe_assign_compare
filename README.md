@@ -196,6 +196,8 @@ https://github.com/CyberSecAI/cve_info/blob/main/2021/1xxx/CVE-2021-1047.json
 
 https://nvd.nist.gov/vuln/detail/CVE-2021-1047#VulnChangeHistorySection
 
+NVD contains only CWE-190.
+
 ````
 Initial Analysis by NIST 12/20/2021 11:04:23 AM
 
@@ -217,6 +219,9 @@ CVE-2022-1016,CWE-909,"(Chains: CWE-909->CWE-416) ""A flaw found ... which can c
 CVE-2022-1016,CWE-416,"(Chains: CWE-909->CWE-416) ""A flaw found ... which can cause a use-after-free"" in description. seclists ref has ""does not initialize the register data"""
 ````
 ### CVEProject 
+https://github.com/CVEProject/cvelistV5/blob/7312095c493616d19119e504e68e39a4617dfa62/cves/2022/1xxx/CVE-2022-1016.json#L62
+
+Contains CWE-824 under cna Container.
 
 ### CyberSecAI/cve_info
 
@@ -233,16 +238,28 @@ https://github.com/CyberSecAI/cve_info/blob/main/2022/1xxx/CVE-2022-1016.json
 
 ### NVD
 
+NVD contains CWE-909 and CWE-824.
+
+https://nvd.nist.gov/vuln/detail/cve-2022-1016#VulnChangeHistorySection
+
 ````
+
+Modified Analysis by NIST 6/27/2023 11:47:56 AM
+- Added	CWE		NIST CWE-909
+- Removed	CWE	NIST CWE-416
+
+CVE Modified by Red Hat, Inc. 2/12/2023 5:15:22 PM
+- Added	CWE		Red Hat, Inc. CWE-824
+
 CVE Modified by Red Hat, Inc. 2/02/2023 4:22:00 PM
+- Removed	CWE	Red Hat, Inc. CWE-824
 
-Removed	CWE Reason	CWE-824 / More specific CWE option available
+Initial Analysis by NIST 9/08/2022 9:15:48 AM
+- Added	CWE		NIST CWE-416
 
-CWE-ID   CWE                                 Name  Source
-CWE-909  Missing Initialization of Resource  cwe   source acceptance level NIST  
-CWE-824  Access of Uninitialized Pointer           Red Hat, Inc.  
 ````
 
+### NVD References
 
 https://seclists.org/oss-sec/2022/q1/205
 > Root cause CVE-2022-1016: (it is the shortest, so I will begin with it)
